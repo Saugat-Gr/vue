@@ -1,21 +1,16 @@
+
 <template>
-  <div>
+  <div class="child-box">
     <h2>Child Component</h2>
-    <p>Message from Parent: {{ message }}</p>
-    <button @click="sendToParent">Increase Count</button>
+    <slot>
+      <p>No content provided from parent.</p>
+    </slot>
   </div>
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
-
-const props = defineProps({
-  message: String
-})
-
-const emit = defineEmits(['update-count'])
-
-function sendToParent() {
-  emit('update-count', 1)
-}
 </script>
+
+<style scoped>
+.child-box { border: 1px solid #333; padding: 10px; }
+</style>

@@ -11,69 +11,22 @@
 <body>
 
 
-     <div id="app">
-        
-        {{message}}
-
-         <p v-bind:title="hoverMessage">Hover me!</p>
-
-         <div class="container-sm border p-5 d-flex flex-column">
-            <button class="btn btn-success align-self-start" v-on:click="hover">Click Me</button>
-            <p v-if="show" class="mt-4">You see me because I am true.</p>
-         </div>
+   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 
-    <div class="container-sm p-5 border mt-5">
-          
-         <h2 class="card-header">For Loop in Vue</h2>
-
-         <div class="card-body">
-            <ul>
-                <li  v-for="toDo in toDos">
-                    {{toDo.task}}
-                </li>
-            </ul>
-         </div>   
-    </div>
+<script>
+  const { createApp, ref } = Vue
 
 
-      <div class="container-sm border shadow-lg mt-5 p-5 rounded">
-
-          <h2 class="text-center">Points to Remember</h2>
-
-          <ul class="list-group">
-              <li class="list-group-item">Reactive Data Binding</li>
-            <li class="list-group-item">Semantic Versioning</li>
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-            <li class="list-group-item"></li>
-          </ul>
-
-      </div>
-
-     </div>
-     
-    <script>
-        const vueApp = new Vue({
-              el: '#app',
-              data: {
-                 'message' : "Hello World from Vue JS",
-                 'hoverMessage': "You hovered me on " + new Date().toLocaleString(),
-                 'show': false,
-                 'toDos' : [
-                    {task: 'Learn Laravel'},
-                    {task: 'Learn Vue.JS'},
-                    {task: 'Learn React'},
-
-                 ] 
-              },
-              methods:{
-                   hover: function(){
-                       this.show = !this.show;
-                   }
-              }
-        })
-    </script>
+  createApp({
+    setup() {
+      const message = ref('Hello vue!')
+      return {
+        message
+      }
+    }
+  }).mount('#app')
+</script>
     
 </body>
 </html>
